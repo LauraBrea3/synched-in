@@ -6,14 +6,17 @@ function Person(props) {
     let fullName = props.person.fullName
     let company = props.person.company
     let devLevel = props.person.devLevel
+    let favoriteColor = props.person.favoriteColor
+    let bio = props.person.bio
 
   return (
-    <Card className="person-card col-2">
+    <Card style={ {backgroundColor:"antiquewhite"} } className="person-card col-2" >
       <Card.Body>
-        <Card.Title>{fullName}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">{devLevel}</Card.Subtitle>
+        <Card.Subtitle style={{borderBottom: "1px solid black"}}>{props.person.devLevel}</Card.Subtitle>
+        <Card.Title style={ {color: favoriteColor} }>{ fullName }</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">{ company }</Card.Subtitle>
         <Card.Text>
-          Currently working for {company}
+          { bio }
         </Card.Text>
         <Card.Link href="#">Portfolio</Card.Link>
         <Card.Link href="#">Contact Me</Card.Link>

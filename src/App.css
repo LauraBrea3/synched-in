@@ -37,7 +37,11 @@
   }
 }
 
-/* .person-card {
-  width: 200px;
-  display: flex;
-} */
+.person-card {
+  margin: 10px;
+
+}
+
+.people-div {
+  background-color: rgb(113, 163, 212);
+}
