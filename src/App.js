@@ -5,9 +5,18 @@ import Person from "./components/Person";
 import Filter from "./components/Filter";
 import Header from "./components/Header";
 
+/*
+if(filter === "") {
+              return person.devLevel === person.devLevel
+            } else {
+              return person.devLevel === filter
+            }
+            
+          } )*/
+
 function App() {
   const [people, setPeople] = useState([]); //array data type
-  const [devLevelFilter, setDevLevelFilter] = useState("");
+  const [filter, setFilter] = useState("");
 
   //Part 1 of 2: Create a function
   async function getPeople() {
@@ -24,13 +33,17 @@ function App() {
   return (
     <div className="people-div">
       <Header />
+      <Filter setFilter={setFilter} />
       <div className="d-flex flex-wrap justify-content-center">
-        {people.map((person) => (
-          <Person key={person.id} person={person} />
-        ))}
+        {people
+          .filter((person) => !filter || person.devLevel === filter)
+          .map((person) => (
+            <Person key={person.id} person={person} />
+          ))}
       </div>
     </div>
   );
 }
 
 export default App;
+

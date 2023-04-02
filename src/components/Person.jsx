@@ -12,7 +12,7 @@ function Person(props) {
   return (
     <Card style={ {backgroundColor:"antiquewhite"} } className="person-card col-2" >
       <Card.Body>
-        <Card.Subtitle style={{borderBottom: "1px solid black"}}>{props.person.devLevel}</Card.Subtitle>
+        <Card.Subtitle style={{borderBottom: "1px solid black"}}>{ devLevel }</Card.Subtitle>
         <Card.Title style={ {color: favoriteColor} }>{ fullName }</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">{ company }</Card.Subtitle>
         <Card.Text>
