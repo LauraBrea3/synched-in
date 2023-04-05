@@ -4,15 +4,8 @@ import fakeFetch from "./utils/fakeFetch";
 import Person from "./components/Person";
 import Filter from "./components/Filter";
 import Header from "./components/Header";
-
-/*
-if(filter === "") {
-              return person.devLevel === person.devLevel
-            } else {
-              return person.devLevel === filter
-            }
-            
-          } )*/
+import Profile from "./components/Profile";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [people, setPeople] = useState([]); //array data type
@@ -32,18 +25,28 @@ function App() {
 
   return (
     <div className="people-div">
+      
       <Header />
-      <Filter setFilter={setFilter} />
-      <div className="d-flex flex-wrap justify-content-center">
-        {people
-          .filter((person) => !filter || person.devLevel === filter)
-          .map((person) => (
-            <Person key={person.id} person={person} />
-          ))}
-      </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Filter setFilter={setFilter} />
+              <div className="d-flex flex-wrap justify-content-center">
+                {people
+                  .filter((person) => !filter || person.devLevel === filter)
+                  .map((person) => (
+                    <Person key={person.id} person={person} />
+                  ))}
+              </div>
+            </>
+          }
+        />
+        <Route path="/profiles/:id" element={<Profile />} />
+      </Routes>
     </div>
   );
 }
 
 export default App;
-
