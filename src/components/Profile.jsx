@@ -16,11 +16,11 @@ export default function Profile(props) {
 
   return (
     <div className="profile">
-      <div>
-      <h1>{user.fullName}</h1>
-      <p>{user.company}</p>
-      <p>{user.devLevel}</p>
-      <p>{user.bio}</p>
+      <div style={{textAlign:"center"}} className="profileView">
+        <h1>{user.fullName}</h1>
+        <p>{user.company}</p>
+        <p>{user.devLevel}</p>
+        <p>{user.bio}</p>
       </div>
     </div>
   );
