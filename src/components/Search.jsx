@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import fakeFetch from "../utils/fakeFetch";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Link } from "react-router-dom";
+import Badge from "react-bootstrap/Badge";
 
 export default function Search(props) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -26,8 +27,15 @@ export default function Search(props) {
 
       <ListGroup className="position-fixed">
         {searchResults.map((result) => (
-          <Link to={`profiles/${result.id}`}>
-            <ListGroup.Item>{result.fullName}</ListGroup.Item>
+          <Link to={`profiles/${result.id}`} style={{ textDecoration: "none" }}>
+            <ListGroup.Item>
+              <h5>
+                {result.fullName}
+                <Badge bg="light" text="secondary">
+                  {result.company}
+                </Badge>
+              </h5>
+            </ListGroup.Item>
           </Link>
         ))}
       </ListGroup>
